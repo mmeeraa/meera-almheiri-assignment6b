@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-image: url("sky.jpg"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        section {
+            width: 1000px;
+            height: 825px;
+            background-color: rgb(25, 32, 62);
+            box-sizing: border-box;
+            margin: 50px auto;
+        }
+
+        section:nth-child(odd) {
+            background-color: rgb(25, 32, 62);
+        }
+
+        img {
+            width: 800px;
+            display: block;
+            margin: 50px;
+            padding-top: 50px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            padding-top: 50px;
+            font-family:'georgia', serif;
+            font-size: 50px;
+            color: rgb(202, 217, 249);
+        }
+
+        h2 {
+            padding-left: 70px;
+            padding-right: 70px;
+            font-family:'georgia', serif;
+            font-size: 20px;
+            color: rgb(202, 217, 249);
+        }
+
+        .fade-container {
+            position: relative;
+            width: 800px;
+            margin: 50px auto;
+        }
+
+        .fade-container img {
+            width: 100%;
+            display: block;
+            margin: 0;       
+            padding-top: 50px;
+            padding-left: 0px; 
+        }
+
+        .fade-container img:nth-child(2) {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;       
+            transition: opacity 0.2s ease-in-out;      
+        }
+
+        .slider {
+            width: 800px;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+    <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-easing="ease-in-out">Home Is Where You Are</h1>      
+        <section>
+            <img src="img1.PNG" alt="Image" data-aos="zoom-out" data-aos-duration="2000" data-aos-easing="ease-in-sine">
+            <h2 data-aos="fade-right" data-aos-duration="2000" data-aos-easing="ease-in-out" data-aos-delay="1300">“Tomorrow I leave for the city, and everything will change. But today, I just want to stay here a little longer with you.”</h2>
+        </section>
+        <section>
+        <div class="fade-container">
+            <img src="img2.PNG" alt="Desert">
+            <img src="img3.PNG" alt="City" id="topImage">
+        </div>
+        <input type="range" min="0" max="100" value="0" id="fadeSlider" class="slider">
+        <h2 data-aos="fade-right" data-aos-duration="2000" data-aos-easing="ease-in-out" data-aos-delay="1300">“The sand fades away, and the buildings begin to rise. Every mile feels like I’m leaving a piece of myself behind.”</h2>
+        </section>
+    </main>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const slider = document.getElementById("fadeSlider");
+        const topImage = document.getElementById("topImage");
+
+        slider.addEventListener("input", function () {
+            topImage.style.opacity = slider.value / 100;
+        });
+    </script>
+
+</body>
+</html>
